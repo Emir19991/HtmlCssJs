@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        .active {
+            color: green;
+        }
+    </style>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+    <label for="name">Введите ваше имя:</label><br>
+    <input type="text" id="name"><br>
+    <button onclick="outputName()">Отправить</button>
+
+    <div id="output"></div>
+
+    <p id="change" class="hover">Нажмите на кнопку, чтобы изменить мой цвет и текст!</p>
+    <button onclick="changeColorAndText()">Изменить цвет и текст</button>
+
+    <ul id="list">
+        <li class="hover">Тут что-то</li>
+        <li class="hover">Там что-то</li>
+        <li class="hover">Где-то что-то</li>
+    </ul>
+    <button onclick="activateListItems()">Активировать элементы списка</button>
+    <p id="change" class="hover">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos soluta itaque cumque ad aliquam exercitationem fuga deserunt obcaecati qui, minus dolores quidem corrupti enim veniam molestiae blanditiis! Error voluptatibus reiciendis, necessitatibus eaque beatae quis tempore molestiae commodi, veritatis hic nihil sequi laudantium laborum illo illum. Modi rem repellendus laborum iste qui nam nostrum minus deleniti autem optio explicabo ipsum repudiandae soluta dolorum vel dicta atque tenetur harum delectus ad doloribus maxime, consequatur nulla veritatis? Non est esse, ipsum eaque, consequuntur amet voluptates eveniet laudantium quod repellendus architecto perspiciatis, illo omnis quis accusamus aliquam labore! Ea porro praesentium nam voluptates numquam reiciendis, officia sint modi est odit ut autem expedita obcaecati repudiandae non neque velit! Excepturi incidunt quos itaque pariatur hic omnis libero voluptatum iste soluta sequi, dolorem modi aut ipsam perspiciatis possimus ipsa ea laborum. Harum, nam totam tempore facilis maxime itaque dolorem soluta delectus cupiditate, placeat ducimus doloremque eligendi!</p>
+
+    <script lang="JavaScript">
+        function outputName() {
+            var name = document.getElementById("name").value;
+            var age = prompt("Введите ваш возраст:");
+            var output = document.getElementById("output");
+            output.innerHTML = "Здравствуйте, " + name + "!";
+
+        
+            switch (true) {
+                case (age < 18):
+                    output.innerHTML += " Вам меньше 18 лет, вам нужно в школу";
+                    break;
+                case (age >= 18 && age < 30):
+                    output.innerHTML += " Вам от 18 до 30 лет, пора на работу";
+                    break;
+                case (age >= 30):
+                    output.innerHTML += " Вам 30 лет или больше, ура вы выжили";
+                    break;
+                default:
+                    output.innerHTML += "Неверно, введите цифры";
+            }
+        }
+
+        function changeColorAndText() {
+            var change = document.getElementById("change");
+            change.style.color = "red";
+            change.innerHTML = "Мой цвет и текст изменились!";
+        }
+
+        function activateListItems() {
+            var listItems = document.querySelectorAll("#list li");
+            listItems.forEach(function(item) {
+                item.classList.add("active");
+            });
+        }
+    </script>
+</body>
+</html>
